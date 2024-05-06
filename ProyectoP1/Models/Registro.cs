@@ -8,4 +8,5 @@
         public DateTime FechaHora { get; set; }
         List<Usuario> UsuariosList { get; set; }
     }
+
 }
