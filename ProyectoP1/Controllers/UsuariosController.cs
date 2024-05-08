@@ -34,7 +34,7 @@ namespace ProyectoP1.Controllers
             }
 
             var usuario = await _context.Usuario
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdUsuario == id);
             if (usuario == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace ProyectoP1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido,Email,Contrasena")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("IdUsuario,Nombre,Apellido,Correo,Clave,ConfirmarClave")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace ProyectoP1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellido,Email,Contrasena")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,Nombre,Apellido,Correo,Clave,ConfirmarClave")] Usuario usuario)
         {
-            if (id != usuario.Id)
+            if (id != usuario.IdUsuario)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace ProyectoP1.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsuarioExists(usuario.Id))
+                    if (!UsuarioExists(usuario.IdUsuario))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace ProyectoP1.Controllers
             }
 
             var usuario = await _context.Usuario
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdUsuario == id);
             if (usuario == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace ProyectoP1.Controllers
 
         private bool UsuarioExists(int id)
         {
-            return _context.Usuario.Any(e => e.Id == id);
+            return _context.Usuario.Any(e => e.IdUsuario == id);
         }
     }
 }

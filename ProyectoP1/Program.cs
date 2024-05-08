@@ -5,10 +5,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ProyectoP1Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ProyectoP1Context") ?? throw new InvalidOperationException("Connection string 'ProyectoP1Context' not found.")));
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+	options.IdleTimeout = TimeSpan.FromMinutes(30); // Duración de la sesión
+	options.Cookie.HttpOnly = true;
+	options.Cookie.IsEssential = true;
+});
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+app.UseSession();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -27,6 +36,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Acceso}/{action=Login}/{id?}");
 
 app.Run();
