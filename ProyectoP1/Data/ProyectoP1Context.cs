@@ -17,5 +17,6 @@ namespace ProyectoP1.Data
         public DbSet<ProyectoP1.Models.Registro> Registro { get; set; } = default!;
         public DbSet<ProyectoP1.Models.Usuario> Usuario { get; set; } = default!;
         public DbSet<ProyectoP1.Models.Vehiculo> Vehiculo { get; set; } = default!;
+        public DbSet<ProyectoP1.Models.Cliente> Cliente { get; set; } = default!;
     }
 }

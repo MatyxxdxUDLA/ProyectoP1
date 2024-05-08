@@ -1,29 +1,29 @@
-﻿@model IEnumerable<ProyectoP1.Models.Registro>
+﻿@model IEnumerable<ProyectoP1.Models.Cliente>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1 style="color: #2c3e50; font-family: 'Arial', sans-serif;">Lista de Registros</h1>
+<h1 style="color: #2c3e50; font-family: 'Arial', sans-serif;">Lista de Clientes</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Agregar Registro</a>
+    <a asp-action="Create" class="btn btn-primary">Agregar Cliente</a>
 </p>
 
 <table class="table table-hover">
     <thead class="thead-dark">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Cliente)
+                @Html.DisplayNameFor(model => model.Cedula)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Vehiculo)
+                @Html.DisplayNameFor(model => model.Nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Estatus)
+                @Html.DisplayNameFor(model => model.Apellido)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaHora)
+                @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>Opciones</th>
         </tr>
@@ -33,16 +33,16 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cliente.Cedula)
+                    @Html.DisplayFor(modelItem => item.Cedula)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Vehiculo.Placa)
+                    @Html.DisplayFor(modelItem => item.Nombre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Estatus)
+                    @Html.DisplayFor(modelItem => item.Apellido)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FechaHora)
+                    @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Editar</a>
