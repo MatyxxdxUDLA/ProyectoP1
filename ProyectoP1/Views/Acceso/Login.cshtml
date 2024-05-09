@@ -3,57 +3,55 @@
     ViewData["Title"] = "Login";
 	Layout = null;
 }
-<head>
-	<title>Login - Patoalarmas</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-	<link href="~/css/site.css" rel="stylesheet" />
-</head>
-<body>
-	<div class="container h-100">
-		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
-				<div class="d-flex justify-content-center">
-					<div class="brand_logo_container">
-						<img src="https://th.bing.com/th/id/OIP.5CNpLj0a2LDAZx05wB56lgAAAA?rs=1&pid=ImgDetMain" class="brand_logo" alt="Logo">
-					</div>
-				</div>
-				<div class="d-flex justify-content-center form_container">
-					<form action="@Url.Action("Login", "Acceso")" method="post">
-						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="text" name="Correo" class="form-control input_user" value="" placeholder="Correo">
-						</div>
-						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-							<input type="password" name="Clave" class="form-control input_pass" value="" placeholder="Clave">
-						</div>
-						
-						@if (ViewData["Mensaje"] != null)
-						{
-							<div class="alert alert-danger" role="alert">
-								@ViewData["Mensaje"]
-							</div>
-						}
-						<div class="d-flex justify-content-center mt-3 login_container">
-							<button type="submit" name="button" class="btn login_btn">Ingresar</button>
-						</div>
-					</form>
-				</div>
+<!DOCTYPE html>
+<html lang="en">
 
-				<div class="mt-4">
-					<div class="d-flex justify-content-center links">
-						¿No tiene cuenta? <a href="@Url.Action("Registrar", "Acceso")" class="ml-2">Registrarse</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link href="~/css/login.css" rel="stylesheet" />
+    <title>Login | Patoalarmas</title>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Crear una cuenta</h1>
+                <span>Ingresa tus credenciales</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Registrarse</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Iniciar Sesión</h1>
+                <span>Ingresa tus credenciales</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Ingresar</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bienvenido de nuevo!</h1>
+                    <p>Ingresa tus datos personales para ingresar al sistema</p>
+                    <button class="hidden" id="login">Ingresar</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hola, Amigo!</h1>
+                    <p>Registrate con tus datos personales para usar el sistema</p>
+                    <button class="hidden" id="register">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script src="~/js/script.js"></script>
 </body>
+
+</html>
