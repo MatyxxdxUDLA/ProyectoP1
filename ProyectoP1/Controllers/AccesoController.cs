@@ -38,6 +38,12 @@ namespace ProyectoP1.Controllers
                 return View();
             }
 
+            if (string.IsNullOrEmpty(oUsuario.Correo))
+            {
+                ViewData["Mensaje"] = "El correo no puede ser nulo o vacío.";
+                return View();
+            }
+
             using (SqlConnection cn = new SqlConnection(cadena))
             {
                 SqlCommand cmd = new SqlCommand("sp_RegistrarUsuario", cn);
@@ -67,6 +73,11 @@ namespace ProyectoP1.Controllers
         public ActionResult Login(Usuario oUsuario)
         {
             oUsuario.Clave = ConvertirSha256(oUsuario.Clave);
+            if (string.IsNullOrEmpty(oUsuario.Correo))
+            {
+                ViewData["Mensaje"] = "El correo no puede ser nulo o vacío.";
+                return View();
+            }
             using (SqlConnection cn = new SqlConnection(cadena))
             {
                 SqlCommand cmd = new SqlCommand("sp_ValidarUsuario", cn);
@@ -91,6 +102,13 @@ namespace ProyectoP1.Controllers
 
         public static string ConvertirSha256(string texto)
         {
+            // Verifica si el texto es null o vacío antes de procesar
+            if (string.IsNullOrEmpty(texto))
+            {
+                // Puedes decidir devolver un valor por defecto o lanzar una excepción personalizada
+                return ""; // Devuelve una cadena vacía si el input es null o vacío
+            }
+
             StringBuilder Sb = new StringBuilder();
             using (SHA256 hash = SHA256Managed.Create())
             {
