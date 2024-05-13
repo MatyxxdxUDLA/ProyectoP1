@@ -22,4 +22,17 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\1.jpg" />
+    <None Include="wwwroot\Images\2.jpg" />
+    <None Include="wwwroot\Images\3.jpg" />
+    <None Include="wwwroot\Images\4.jpg" />
+    <None Include="wwwroot\Images\5.jpg" />
+    <None Include="wwwroot\Images\6.jpg" />
+  </ItemGroup>
+
 </Project>

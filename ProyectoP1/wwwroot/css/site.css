@@ -209,3 +209,14 @@ body {
 .container.active .toggle-right {
     transform: translateX(200%);
 }
+
+main {
+    max-height: 80vh; /* Establece la altura máxima del contenedor */
+    overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura máxima */
+}
+
+.carousel-item img {
+    height: 400px; /* Establece la altura deseada para las imágenes */
+    width: 100%; /* Hace que las imágenes se ajusten al ancho del contenedor */
+    object-fit: cover; /* Hace que las imágenes se ajusten manteniendo su relación de aspecto */
+}
